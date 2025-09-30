@@ -1,3 +1,10 @@
+import {
+  createSection,
+  createHeading,
+  createParagraph,
+  createText,
+  createDiv,
+} from "./utils.js";
 export default function createContactSection() {
   const contactSection = createSection("contact");
   const contactHeading = createHeading(2, "Contact Us");

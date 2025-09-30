@@ -1,3 +1,10 @@
+import {
+  createSection,
+  createHeading,
+  createParagraph,
+  createText,
+  createDiv,
+} from "./utils.js";
 export default function createHomeSection() {
   const homeDiv = createDiv("home");
   function createHomeFirstSection() {
