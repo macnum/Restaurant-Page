@@ -3,7 +3,11 @@ import {
   createHeading,
   createParagraph,
   createText,
+  createListItem,
+  createUnorderedList,
+  createDiv,
 } from "./utils.js";
+
 export default function createMenuSection() {
   const menuDiv = createDiv("menu");
   const menuHeading = createHeading(2, "Our Menu");

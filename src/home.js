@@ -3,8 +3,11 @@ import {
   createHeading,
   createParagraph,
   createText,
+  createListItem,
+  createUnorderedList,
   createDiv,
 } from "./utils.js";
+
 export default function createHomeSection() {
   const homeDiv = createDiv("home");
   function createHomeFirstSection() {
