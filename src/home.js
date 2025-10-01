@@ -12,7 +12,7 @@ export default function createHomeSection() {
   const homeDiv = createDiv("home");
   function createHomeFirstSection() {
     const homeFirstSection = createSection("first");
-    const homeHeading = createHeading(1, "Ember &amp; Oak");
+    const homeHeading = createHeading(1, "Ember & Oak");
     homeFirstSection.appendChild(homeHeading);
 
     const homeParagraph1 = createParagraph(

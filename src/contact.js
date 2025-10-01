@@ -46,10 +46,10 @@ export default function createContactSection() {
     const iframe = document.createElement("iframe");
     iframe.src =
       "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.5944949999997!2d3.3792049149999997!3d6.524379999999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8c1c0a5b0a3f%3A0x8f9b9b9b9b9b9b9b!2s123%20Main%20St%2C%20Lagos%2C%20Nigeria!5e0!3m2!1sen!2sng!4v1631234567890";
-    iframe.width = "600";
-    iframe.height = "450";
+    iframe.width = "100%";
+    iframe.height = "300";
     iframe.style.border = "0";
-    iframe.allowFullscreen = "";
+    iframe.allowFullscreen = true;
     iframe.loading = "lazy";
     mapDiv.appendChild(iframe);
     return mapDiv;
