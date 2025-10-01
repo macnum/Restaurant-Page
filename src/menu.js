@@ -8,57 +8,141 @@ import {
   createDiv,
 } from "./utils.js";
 
+import bruschettaImg from "./images/bruschetta.jpg";
+import capreseImg from "./images/caprese.jpg";
+import garlicBreadImg from "./images/garlic-bread.jpg";
+import pestoPastaImg from "./images/pesto-pasta.jpg";
+import steakImg from "./images/steak.jpg";
+import chocolateCakeImg from "./images/chocolate-cake.jpg";
+import cheesecakeImg from "./images/cheesecake.jpg";
+import redVelvetCakeImg from "./images/red-velvet-cake.jpg";
+// Helper to build each menu item
+function createMenuItem(imgSrc, imgAlt, name, price, description) {
+  const wrapper = document.createElement("div");
+  wrapper.classList.add("menu-item");
+
+  const img = document.createElement("img");
+  img.src = imgSrc;
+  img.alt = imgAlt;
+  img.width = 100;
+
+  const textDiv = document.createElement("div");
+  const title = document.createElement("strong");
+  title.textContent = `${name} - $${price}`;
+
+  const desc = document.createElement("p");
+  desc.textContent = description;
+
+  textDiv.appendChild(title);
+  textDiv.appendChild(desc);
+
+  wrapper.appendChild(img);
+  wrapper.appendChild(textDiv);
+
+  return wrapper;
+}
+
 export default function createMenuSection() {
   const menuDiv = createDiv("menu");
   const menuHeading = createHeading(2, "Our Menu");
   menuDiv.appendChild(menuHeading);
+
+  // Appetizers
   function createMenuAppetizersSection() {
-    const menuAppetizersSection = createSection("appetizers");
-    const menuAppetizersHeading = createHeading(3, "Appetizers");
-    menuAppetizersSection.appendChild(menuAppetizersHeading);
+    const section = createSection("appetizers");
+    section.appendChild(createHeading(3, "Appetizers"));
+
     const appetizersList = createUnorderedList([
-      '<img src="images/bruschetta.jpg" alt="Bruschetta" width="100" /> <div><strong>Bruschetta</strong> - $8 <p>Grilled bread topped with fresh tomatoes, basil, and olive oil.</p></div>',
-      '<img src="images/caprese.jpg" alt="Caprese Salad" width="100"/> <div><strong>Caprese Salad</strong> - $10<p>    Fresh mozzarella, tomatoes, and basil drizzled with balsamic glaze.</p></div>',
-      '<img src="images/garlic-bread.jpg" alt="Garlic Bread" width="100"/><div><strong>Garlic Bread</strong> - $6<p>Toasted baguette slices brushed with garlic butter and herbs.</p></div>',
+      createMenuItem(
+        bruschettaImg,
+        "Bruschetta",
+        "Bruschetta",
+        8,
+        "Grilled bread topped with fresh tomatoes, basil, and olive oil.",
+      ),
+      createMenuItem(
+        capreseImg,
+        "Caprese Salad",
+        "Caprese Salad",
+        10,
+        "Fresh mozzarella, tomatoes, and basil drizzled with balsamic glaze.",
+      ),
+      createMenuItem(
+        garlicBreadImg,
+        "Garlic Bread",
+        "Garlic Bread",
+        6,
+        "Toasted baguette slices brushed with garlic butter and herbs.",
+      ),
     ]);
-    menuAppetizersSection.appendChild(appetizersList);
-    return menuAppetizersSection;
+
+    section.appendChild(appetizersList);
+    return section;
   }
 
-  const menuAppetizersSection = createMenuAppetizersSection();
-
-  //main course
+  // Main Courses
   function createMenuMainCoursesSection() {
-    const menuMainCoursesSection = createSection("main-courses");
-    const menuMainCoursesHeading = createHeading(3, "main-courses");
-    menuMainCoursesSection.appendChild(menuMainCoursesHeading);
+    const section = createSection("main-courses");
+    section.appendChild(createHeading(3, "Main Courses"));
+
     const mainCoursesList = createUnorderedList([
-      '<img src="images/pesto-pasta.jpg" alt="Pesto Pasta" width="100" /> <div> <strong>Pesto Pasta</strong> - $12<p>Creamy pesto sauce tossed with penne pasta and grilled vegetables.</p></div>',
-      '<img src="images/steak.jpg" alt="Steak" width="100"/><div><strong>Steak</strong> - $20<p>Juicy grilled steak served with roasted potatoes and sautéed mushrooms.</p></div>',
+      createMenuItem(
+        pestoPastaImg,
+        "Pesto Pasta",
+        "Pesto Pasta",
+        12,
+        "Creamy pesto sauce tossed with penne pasta and grilled vegetables.",
+      ),
+      createMenuItem(
+        steakImg,
+        "Steak",
+        "Steak",
+        20,
+        "Juicy grilled steak served with roasted potatoes and sautéed mushrooms.",
+      ),
     ]);
-    menuMainCoursesSection.appendChild(mainCoursesList);
-    return menuMainCoursesSection;
-  }
-  const menuMainCoursesSection = createMenuMainCoursesSection();
 
+    section.appendChild(mainCoursesList);
+    return section;
+  }
+
+  // Desserts
   function createMenuDessertSection() {
-    const menuDessertSection = createSection("desserts");
-    const menuDessertHeading = createHeading(3, "desserts");
-    menuDessertSection.appendChild(menuDessertHeading);
+    const section = createSection("desserts");
+    section.appendChild(createHeading(3, "Desserts"));
+
     const dessertList = createUnorderedList([
-      '<img src="images/chocolate-cake.jpg" alt="Chocolate Cake" width="100" /> <div> <strong>Chocolate Cake</strong> - $10<p>Rich chocolate cake with a buttercream frosting.</p></div>',
-      '<img src="images/cheesecake.jpg" alt="Cheesecake" width="100"/><div><strong>Cheesecake</strong> - $12<p>Classic cheesecake with a graham cracker crust.</p></div>',
-      '<img src="images/red-velvet-cake.jpg" alt="Red Velvet Cake" width="100"/><div><strong>Red Velvet Cake</strong> - $14<p>Moist red velvet cake with cream cheese frosting.</p></div>',
+      createMenuItem(
+        chocolateCakeImg,
+        "Chocolate Cake",
+        "Chocolate Cake",
+        10,
+        "Rich chocolate cake with a buttercream frosting.",
+      ),
+      createMenuItem(
+        cheesecakeImg,
+        "Cheesecake",
+        "Cheesecake",
+        12,
+        "Classic cheesecake with a graham cracker crust.",
+      ),
+      createMenuItem(
+        redVelvetCakeImg,
+        "Red Velvet Cake",
+        "Red Velvet Cake",
+        14,
+        "Moist red velvet cake with cream cheese frosting.",
+      ),
     ]);
 
-    menuDessertSection.appendChild(dessertList);
-    return menuDessertSection;
+    section.appendChild(dessertList);
+    return section;
   }
-  const menuDessertSection = createMenuDessertSection();
 
-  menuDiv.appendChild(menuAppetizersSection);
-  menuDiv.appendChild(menuMainCoursesSection);
-  menuDiv.appendChild(menuDessertSection);
+  // Build menu
+  menuDiv.appendChild(createMenuAppetizersSection());
+  menuDiv.appendChild(createMenuMainCoursesSection());
+  menuDiv.appendChild(createMenuDessertSection());
 
   return menuDiv;
 }

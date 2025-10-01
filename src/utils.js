@@ -28,11 +28,19 @@ export function createUnorderedList(items) {
   });
   return list;
 }
+
 export function createListItem(item) {
   const listItem = document.createElement("li");
-  listItem.innerHTML = item;
+
+  if (typeof item === "string") {
+    listItem.innerHTML = item; // old behavior
+  } else if (item instanceof HTMLElement) {
+    listItem.appendChild(item); // new behavior
+  }
+
   return listItem;
 }
+
 export function createHeading(level, text) {
   const heading = document.createElement(`h${level}`);
   heading.textContent = text;
